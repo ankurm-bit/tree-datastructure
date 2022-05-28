@@ -39,6 +39,20 @@ public class PreOrderIterative {
         }
     }
 
+    public static void preOrderTraversal(Node root){
+        if(root == null)
+            return ;
+        Stack<Node> st = new Stack<>();
+        st.push(root);
+        while(!st.isEmpty()){
+            root = st.pop();
+            System.out.print(root.data+" ");
+            if(root.right != null)st.push(root.right);
+            if(root.left != null)st.push(root.left);
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -48,7 +62,8 @@ public class PreOrderIterative {
         root.left.right.left = new Node(6);
         root.left.right.right = new Node(7);
 
-//        iteratingPreOrder(root);
-        iterativeInOrder(root);
+        iteratingPreOrder(root);
+//        iterativeInOrder(root);
+//        preOrderTraversal(root);
     }
 }
